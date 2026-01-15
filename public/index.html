@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CYBER BATTLE V3</title>
+    <link rel="stylesheet" href="style.css?v=1">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <audio id="sfx-select" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3"></audio>
+    <audio id="sfx-battle" src="https://assets.mixkit.co/active_storage/sfx/1003/1003-preview.mp3"></audio>
+    <audio id="sfx-slide" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3"></audio>
+
+    <div id="page-lobby" class="page active">
+        <h1 class="glitch-title">ELITE SQUAD WALA GAME</h1>
+        <div class="cyber-card">
+            <button class="neon-btn" onclick="createParty()">GENERATE_ARENA</button>
+            <h2 id="room-display" class="code-text"></h2>
+            <div class="divider">KHALI ROOM CODE TAK BOT</div>
+            <input type="text" id="join-code" class="cyber-input" placeholder="ACCESS_KEY">
+            <button class="neon-btn blue" onclick="joinParty()">CONNECT_LINK</button>
+        </div>
+    </div>
+
+    <div id="page-game" class="page">
+        <div class="arena-header">
+            <select id="topic-select" class="cyber-select"></select>
+            <div id="turn-msg">INITIALIZING...</div>
+        </div>
+
+        <div class="mobile-tabs mobile-only">
+            <button id="tab-my" class="tab-btn active" onclick="switchTab('my')">MY DATA</button>
+            <button id="tab-op" class="tab-btn" onclick="switchTab('op')">OPPONENT</button>
+        </div>
+
+        <div class="search-wrap">
+            <input type="text" id="search-input" placeholder="SEARCH_DATABASE...">
+            <div id="suggestions" class="sug-dropdown"></div>
+        </div>
+
+        <div class="battle-grid">
+            <div id="card-A" class="team-card">
+                <input type="text" class="team-label" id="name-A" value="USER_01">
+                <div class="power-bar"><div id="bar-A" class="fill blue"></div></div>
+                <div id="list-A" class="scroll-list"></div>
+            </div>
+
+            <div id="card-B" class="team-card">
+                <input type="text" class="team-label" id="name-B" value="USER_02">
+                <div class="power-bar"><div id="bar-B" class="fill pink"></div></div>
+                <div id="list-B" class="scroll-list"></div>
+            </div>
+        </div>
+
+        <div class="footer-controls">
+            <button id="fight-btn" class="neon-btn pink" style="display:none;" onclick="startBattle()">EXECUTE_FIGHT</button>
+        </div>
+    </div>
+
+    <div id="page-result" class="page">
+        <div id="loader-text">AI_CALCULATING...</div>
+        <div id="result-container" style="display:none;">
+            <div class="carousel-window">
+                <div id="result-track"></div>
+            </div>
+            <div class="slide-controls">
+                <button id="prev-btn" class="nav-btn" onclick="moveSlide(-1)" disabled>&lt;</button>
+                <div id="slide-indicator">1 / 6</div>
+                <button id="next-btn" class="nav-btn" onclick="moveSlide(1)">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
