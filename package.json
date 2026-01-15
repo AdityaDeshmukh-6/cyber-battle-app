@@ -1,0 +1,10 @@
+{
+  "name": "cyber-battle-v3",
+  "version": "3.0.0",
+  "description": "Cyberpunk Battle App V3",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2"
+  }
+}
