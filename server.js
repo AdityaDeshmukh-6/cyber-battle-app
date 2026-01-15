@@ -123,5 +123,8 @@ io.on('connection', (socket) => {
     });
 });
 
-const PORT = 3000;
-server.listen(PORT, () => console.log(`CYBER-ENGINE ONLINE at http://localhost:${PORT}`));
+// NEW CODE: Allows Render to set the Port automatically
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`CYBER-ENGINE RUNNING ON PORT ${PORT}`);
+});
